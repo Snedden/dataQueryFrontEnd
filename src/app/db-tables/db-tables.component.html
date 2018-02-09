@@ -1,0 +1,27 @@
+
+
+<div class="container">
+  <div class="col-md-4">
+    <ul class="list-group" >
+      <li *ngFor="let table of tableArray" class="list-group-item " [class.active]="table.isSelected">
+        <span style = "cursor: pointer"  (click) = "onTableClicked(table)">
+        {{table.TABLE_NAME}}
+        </span>
+        <div *ngIf='currentSelectedTable && currentSelectedTable.TABLE_COLUMNS' class="col-md-12 .col-md-offset-1" >
+          <div *ngIf='currentSelectedTable === table' class="list-group"  >
+
+              <button type="button"  *ngFor="let column of currentSelectedTable.TABLE_COLUMNS" class="list-group-item list-group-item-action" (click) = "columnClicked(column)">
+              {{column.COLUMN_NAME}}
+              <input type="checkbox" attr.checked = "column.isChecked" id="{{column.TABLE_NAME}}_{{column.COLUMN_NAME}}"  >
+              </button>
+
+
+          </div>
+      </div>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-8">.col-md-8</div>
+</div>
+
+
