@@ -1,0 +1,15 @@
+
+
+<table *ngIf="table">
+  <tr >
+    <th *ngFor="let column of tableCols"><span>{{column}}</span></th>
+  </tr>
+  <tr *ngFor="let row of tableRows">
+    <td *ngFor="let columnData of row">
+        <span>
+          {{columnData}}
+        </span>
+    </td>
+
+  </tr>
+</table>

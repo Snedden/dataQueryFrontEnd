@@ -13,6 +13,7 @@ import { DataTablesService } from './db-tables/db-tables.service';
 import { CredentialFormComponent } from './credential-form/credential-form.component';
 import { DbColumnComponent } from './db-column/db-column.component';
 import { DbCred } from './db-cred';
+import { TableOutputComponentComponent } from './table-output-component/table-output-component.component';
 
 const appRoutes: Routes = [
   { path: 'database/:user/:password/:string', component: DbTablesComponent },
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     DbTablesComponent,
     DbTableComponent,
     CredentialFormComponent,
-    DbColumnComponent
+    DbColumnComponent,
+    TableOutputComponentComponent
   ],
   imports: [
     BrowserModule,

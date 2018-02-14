@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IdataBaseTable } from './IdataBaseTable';
 import { DbColumnComponent } from '../db-column/db-column.component';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'db-table',
@@ -17,6 +18,9 @@ export class DbTableComponent implements OnInit {
   constructor() {
 
    }
+
+
+
 
   ngOnInit() {
   }

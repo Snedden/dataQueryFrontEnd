@@ -4,4 +4,5 @@ export interface IdataBaseTableColumn {
   DATA_TYPE:string;
   DATA_LENGTH:string;
   isChecked: boolean;
+  DATA: string[];
 }

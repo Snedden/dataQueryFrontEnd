@@ -13,6 +13,7 @@ import { DataBaseTable } from '../db-table/DataBaseTable';
 export class DataTablesService {
   private _Url ='http://localhost:3000/';
   private columns_Url ='http://localhost:3001/';
+  private data_Url = 'http://localhost:3002/';
   dbCredentials : any;
   constructor(private _http: Http, private _dbCred: DbCred) {
     this.dbCredentials = {
@@ -46,6 +47,22 @@ export class DataTablesService {
     console.log("json: ",body);
     return this._http.post(this.columns_Url, body, {headers: headers})
       .map((response: Response) => <IdataBaseTableColumn[]> response.json())
+      .catch((error) => this.handleError(error));
+  }
+
+  getData(tableName : string, selectedColumnNames : Object[]){
+    let headers = new Headers({
+      'Content-Type': 'text/plain'
+    });
+    let reqMessage = {
+      dbConnectionCredentials : this.dbCredentials,
+      tableName : tableName ,
+      selectedColumnNames : selectedColumnNames,
+    }
+    let body = JSON.stringify(reqMessage);
+    console.log("json: ",body);
+    return this._http.post(this.data_Url, body, {headers: headers})
+      .map((response: Response) => response.json())
       .catch((error) => this.handleError(error));
   }
 
